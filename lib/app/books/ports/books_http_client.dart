@@ -11,7 +11,7 @@ class BooksHttpClient extends IBooksApiClient {
   }) async {
     try {
       final response = await CustomDio().client.get<Map<String, dynamic>>(
-            '/search/$text',
+            '/search/$text/$page',
           );
       final data = response.data;
       if (data == null) {

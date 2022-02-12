@@ -2,13 +2,11 @@ part of 'books_bloc.dart';
 
 class BooksState extends Equatable {
   final BooksInfo booksInfo;
-  // final List<Book> books;
   final bool isLoading;
   final int page;
 
   const BooksState({
     required this.booksInfo,
-    // required this.books,
     this.isLoading = false,
     this.page = 1,
   });

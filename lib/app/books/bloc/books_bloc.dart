@@ -45,6 +45,7 @@ class BooksBloc extends Bloc<BooksEvent, BooksState> {
               total: state.booksInfo.total,
               books: [...state.booksInfo.books, ...books],
             ),
+            page: event.page,
           ),
         );
       }
