@@ -5,7 +5,7 @@ import 'package:pokec_assignment/models/books_info.dart';
 
 class BooksHttpClient extends IBooksApiClient {
   @override
-  Future<BooksInfo> fetchBooks({
+  Future<BooksInfo> fetchBooksInfo({
     required String text,
     required int page,
   }) async {

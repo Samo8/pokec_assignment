@@ -37,10 +37,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'IT books',
+        theme: ThemeData(
+          primaryColor: const Color(0xFF2596BE),
+        ),
         onGenerateRoute: _generateRoute,
-        home: BooksScreen(),
+        home: const BooksScreen(),
       ),
     );
   }

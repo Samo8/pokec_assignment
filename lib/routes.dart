@@ -17,6 +17,9 @@ Route<dynamic> _generateRoute(RouteSettings settings) {
       );
     default:
       throw ArgumentError.value(
-          settings.name, 'settings.name', 'Unsupported route');
+        settings.name,
+        'settings.name',
+        'Unsupported route',
+      );
   }
 }

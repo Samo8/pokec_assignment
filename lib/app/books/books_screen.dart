@@ -76,44 +76,46 @@ class _BooksScreenState extends State<BooksScreen> {
                             ),
                           );
                         },
-                        child: ListView.builder(
-                          itemBuilder: (ctx, index) {
-                            final book = state.booksInfo.books[index];
+                        child: Scrollbar(
+                          child: ListView.builder(
+                            itemBuilder: (ctx, index) {
+                              final book = state.booksInfo.books[index];
 
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10.0,
-                                vertical: 4.0,
-                              ),
-                              child: Card(
-                                child: InkWell(
-                                  child: ListTile(
-                                    leading: Image.network(
-                                      book.image,
-                                      loadingBuilder: (_, child,
-                                              loadingProgress) =>
-                                          loadingProgress != null
-                                              ? const CircularProgressIndicator()
-                                              : child,
-                                    ),
-                                    title: Text(book.title),
-                                    subtitle: Text(book.subtitle),
-                                    trailing: Text(book.price),
-                                  ),
-                                  onTap: () {
-                                    Navigator.of(context).pushNamed(
-                                      BookDetailScreen.routeName,
-                                      arguments: BookDetailScreenArguments(
-                                        title: book.title,
-                                        isbn: book.isbn,
-                                      ),
-                                    );
-                                  },
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0,
+                                  vertical: 4.0,
                                 ),
-                              ),
-                            );
-                          },
-                          itemCount: state.booksInfo.books.length,
+                                child: Card(
+                                  child: InkWell(
+                                    child: ListTile(
+                                      leading: Image.network(
+                                        book.image,
+                                        loadingBuilder: (_, child,
+                                                loadingProgress) =>
+                                            loadingProgress != null
+                                                ? const CircularProgressIndicator()
+                                                : child,
+                                      ),
+                                      title: Text(book.title),
+                                      subtitle: Text(book.subtitle),
+                                      trailing: Text(book.price),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).pushNamed(
+                                        BookDetailScreen.routeName,
+                                        arguments: BookDetailScreenArguments(
+                                          title: book.title,
+                                          isbn: book.isbn,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              );
+                            },
+                            itemCount: state.booksInfo.books.length,
+                          ),
                         ),
                       ),
               ),

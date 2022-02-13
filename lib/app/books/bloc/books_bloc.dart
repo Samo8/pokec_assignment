@@ -17,14 +17,14 @@ class BooksBloc extends Bloc<BooksEvent, BooksState> {
     on<BooksEvent>((event, emit) async {
       if (event is FetchBooksEvent) {
         emit(state.copyWith(isLoading: true));
-        final books = await booksService.fetchBooks(
+        final booksInfo = await booksService.fetchBooksInfo(
           text: event.text,
           page: 1,
         );
         emit(
           state.copyWith(
             isLoading: false,
-            booksInfo: books,
+            booksInfo: booksInfo,
           ),
         );
       }
@@ -33,7 +33,7 @@ class BooksBloc extends Bloc<BooksEvent, BooksState> {
         if (totalBooks != null && state.booksInfo.books.length >= totalBooks) {
           return;
         }
-        final booksInfo = await booksService.fetchBooks(
+        final booksInfo = await booksService.fetchBooksInfo(
           text: event.text,
           page: event.page,
         );

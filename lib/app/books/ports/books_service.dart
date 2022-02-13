@@ -7,12 +7,12 @@ class BooksService {
 
   const BooksService(this.booksApiClient);
 
-  Future<BooksInfo> fetchBooks({
+  Future<BooksInfo> fetchBooksInfo({
     required String text,
     required int page,
   }) async {
     try {
-      return await booksApiClient.fetchBooks(text: text, page: page);
+      return await booksApiClient.fetchBooksInfo(text: text, page: page);
     } catch (e) {
       return const BooksInfo(total: '', books: <Book>[]);
     }
